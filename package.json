@@ -12,7 +12,9 @@
     "lint": "node test/lint.js",
     "test": "npm run lint && mocha --recursive --colors --reporter spec",
     "cover": "npm run clean && istanbul cover ./node_modules/mocha/bin/_mocha -- --recursive",
-    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive --reporter spec && istanbul-coveralls && npm run clean"
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive --reporter spec && istanbul-coveralls && npm run clean",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -57,14 +59,16 @@
     "http-proxy": "^1.16.2",
     "is-glob": "^4.0.0",
     "lodash": "^4.17.2",
-    "micromatch": "^3.1.0"
+    "micromatch": "^3.1.0",
+    "snyk": "^1.316.1"
   },
   "engines": {
-    "node" : ">=4.0.0"
+    "node": ">=4.0.0"
   },
   "standard": {
     "env": [
       "mocha"
     ]
-  }
+  },
+  "snyk": true
 }
